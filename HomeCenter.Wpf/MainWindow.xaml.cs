@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeCenter.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,21 @@ namespace HomeCenter.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly KeyboardListenerService _keyboardListenerService = new KeyboardListenerService();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _keyboardListenerService.Start();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _keyboardListenerService.Stop();
         }
     }
 }
