@@ -1,18 +1,5 @@
-﻿using HomeCenter.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using HomeCenter.Services;
 
 namespace HomeCenter.Wpf
 {
@@ -21,21 +8,15 @@ namespace HomeCenter.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly KeyboardListenerService _keyboardListenerService = new KeyboardListenerService();
+        private readonly KeyboardListenerService _keyboardListenerService = new();
 
         public MainWindow()
-        {
-            InitializeComponent();
-        }
+            => InitializeComponent();
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _keyboardListenerService.Start();
-        }
+            => _keyboardListenerService.Start();
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _keyboardListenerService.Stop();
-        }
+            => _keyboardListenerService.Stop();
     }
 }

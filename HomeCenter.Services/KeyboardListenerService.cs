@@ -10,6 +10,7 @@ namespace HomeCenter.Services
         private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
         private LowLevelKeyboardProc _proc;
         private bool _disposed;
+        private ConsoleKey _lastKeyPressed;
 
         protected virtual void Dispose(bool disposing)
         {
@@ -87,13 +88,18 @@ namespace HomeCenter.Services
                         case ConsoleKey.Multiply:
                             KeyboardUtils.PressPlayPause();
                             break;
-                        case ConsoleKey.Clear:
-                            KeyboardUtils.PressF5();
-                            break;
+                        //case ConsoleKey.Clear:
+                        //    KeyboardUtils.PressF5();
+                        //    break;
                         case ConsoleKey.Divide:
-                            PowerUtils.Hibernate();
+                            if (_lastKeyPressed == ConsoleKey.Divide)
+                            {
+                                PowerUtils.Hibernate();
+                            }
                             break;
                     }
+
+                    _lastKeyPressed = (ConsoleKey)vkCode;
                 }
             }
 
