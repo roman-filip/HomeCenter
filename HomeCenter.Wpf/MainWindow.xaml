@@ -1,4 +1,4 @@
-﻿<Window x:Class="HomeCenter.Wpf.MainWindow"
+﻿<Window xmlns:Views="clr-namespace:HomeCenter.Wpf.Views"  x:Class="HomeCenter.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,5 +9,7 @@
     <Grid>
         <Button Content="Start" HorizontalAlignment="Left" Margin="78,129,0,0" VerticalAlignment="Top" Height="26" Width="71" Click="Button_Click"/>
         <Button Content="Stop" HorizontalAlignment="Left" Margin="178,129,0,0" VerticalAlignment="Top" Height="26" Width="71" Click="Button_Click_1"/>
+        
+        <Views:YearProgressView />
     </Grid>
 </Window>
